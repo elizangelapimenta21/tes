@@ -1,0 +1,52 @@
+Para configurar e executar o aplicativo localmente, siga estas etapas:
+
+1. Pré-requisitos:
+Certifique-se de que você tenha o Python instalado em sua máquina. Você pode baixá-lo em python.org.
+
+2. Configuração do Ambiente Virtual (Opcional, mas recomendado):
+É uma boa prática criar um ambiente virtual para o seu projeto, que isola as dependências do seu aplicativo. Você pode usar a biblioteca venv (incluída na biblioteca padrão do Python) ou o virtualenv. Vamos usar o venv neste exemplo.
+
+Abra o terminal (ou prompt de comando) e siga estas etapas:
+
+Navegue até o diretório onde você tem seu código.
+
+Crie um ambiente virtual (substitua nome_do_ambiente pelo nome que você preferir):
+
+python -m venv nome_do_ambiente
+Ative o ambiente virtual:
+
+No Windows:
+nome_do_ambiente\Scripts\activate
+
+No macOS e Linux:
+source nome_do_ambiente/bin/activate
+
+3. Instalação de Dependências:
+Dentro do ambiente virtual (se você o estiver usando), navegue até o diretório do seu projeto e instale as dependências do aplicativo usando o pip (o gerenciador de pacotes do Python):
+
+pip install Flask Flask-SQLAlchemy Flask-Login requests
+
+Isso instalará o Flask (framework web), Flask-SQLAlchemy (extensão para o banco de dados SQLite), Flask-Login (extensão para autenticação) e a biblioteca requests para fazer chamadas à API de CEP.
+
+4. Inicialização do Aplicativo:
+Certifique-se de estar no diretório do seu projeto e execute o seguinte comando para iniciar o aplicativo:
+
+python seu_arquivo.py
+Substitua seu_arquivo.py pelo nome do arquivo Python onde você colocou o código do seu aplicativo.
+
+Você verá saídas no terminal indicando que o servidor Flask está em execução, e você poderá acessar o aplicativo localmente em http://localhost:5000 no seu navegador.
+
+5. Uso do Aplicativo:
+Abra um navegador da web e acesse http://localhost:5000.
+
+Você deve ser redirecionado para a página de registro. Você pode criar uma conta fornecendo um nome de usuário, e-mail e senha.
+
+Após o registro, você será redirecionado para a página de login, onde pode fazer login com suas credenciais recém-criadas.
+
+Após o login bem-sucedido, você será redirecionado para a página de perfil, onde pode inserir um CEP e fazer o upload de uma foto de perfil.
+
+As informações do CEP serão preenchidas automaticamente nos campos do formulário após a consulta à API de CEP.
+
+Os dados do usuário, incluindo o CEP e o caminho do arquivo da foto de perfil, serão armazenados no banco de dados SQLite.
+
+Agora você tem seu aplicativo Flask em execução localmente e pode explorar todas as funcionalidades que implementou. Certifique-se de personalizar as páginas HTML e o CSS de acordo com suas necessidades.

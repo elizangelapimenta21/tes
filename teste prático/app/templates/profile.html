@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Perfil</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form method="POST" action="/profile">
+        <label for="cep">CEP:</label>
+        <input type="text" name="cep" pattern="\d{8}" title="Digite um CEP válido (8 dígitos)" required><br>
+
+        <input type="submit" value="Atualizar CEP">
+    </form>
+    <br>
+
+    <!-- Exibir foto de perfil (implementação depende do seu código JavaScript) -->
+    <img src="{{ current_user.profile_picture }}" alt="Foto de Perfil" width="100"><br>
+
+    <form method="POST" action="/upload_profile_picture" enctype="multipart/form-data">
+        <label for="profile_picture">Foto de Perfil:</label>
+        <input type="file" name="profile_picture" accept="image/*"><br>
+
+        <input type="submit" value="Enviar Foto de Perfil">
+    </form>
+    <br>
+
+    <a href="/logout">Logout</a>
+</body>
+</html>
